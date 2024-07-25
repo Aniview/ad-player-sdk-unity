@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+  <androidPackages>
+    <androidPackage spec="com.adservrs:adplayer:1.8.0">
+      <repositories>
+        <repository>https://us-central1-maven.pkg.dev/mobile-sdk-fd2e4/adservr-maven</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+</dependencies>

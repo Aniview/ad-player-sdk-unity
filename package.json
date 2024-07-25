@@ -1,0 +1,15 @@
+{
+  "name": "com.adservrs.adplayer",
+  "version": "1.0.0",
+  "displayName": "AdPlayer",
+  "keywords": [
+    "AdPlayer",
+    "Mobile",
+    "Ads"
+  ],
+  "description": "AdPLayer Mobile Ads for Unity.",
+  "unity": "2019.4",
+  "dependencies": {
+    "com.google.external-dependency-manager": "1.2.178"
+  }
+}

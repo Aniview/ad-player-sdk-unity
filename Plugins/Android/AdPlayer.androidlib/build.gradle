@@ -1,0 +1,33 @@
+plugins {
+    id("com.android.library")
+}
+
+android {
+    namespace 'com.adservrs.adplayer.unity'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 22
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly(files("external-libs/classes.jar"))
+
+    implementation("com.adservrs:adplayer:1.8.0")
+}
