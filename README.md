@@ -54,7 +54,7 @@ IAdPlayer.Instance.InitializePublisher(new(
 ));
 ```
 
-## Creating a placement
+## Creating placement
 
 To show any AD a placement must be created:
 ```cs
@@ -65,7 +65,7 @@ placement.UpdatePosition(x, y, width, height);
 
 Please note that placement coordinates are in screen space pixels.
 
-## Releasing a placement
+## Disposing placement
 
 When placement is no longer needed id must be disposed:
 ```cs
