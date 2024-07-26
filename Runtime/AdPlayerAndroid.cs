@@ -7,6 +7,8 @@ namespace AdPlayer
     {
         private readonly AndroidJavaObject jAdPlayer = new("com.adservrs.adplayer.unity.Player");
 
+        public void SetIOsAppStoreUrl(string AppStoreURL) { /* empty */ }
+
         public void InitializePublisher(IAdPlayer.PublisherConfig config)
         {
             var tags = config.Tags.Select(config =>

@@ -19,6 +19,7 @@ namespace AdPlayer
             return Application.platform switch
             {
                 RuntimePlatform.Android => new AdPlacementAndroid(),
+                RuntimePlatform.IPhonePlayer => new AdPlacementIOS(),
                 _ => throw new Exception("unsupported platform"),
             };
         }
