@@ -30,12 +30,29 @@ Player needs to be properly configured before building project for Android/iOS:
 - Change `Script Backend` to `IL2CPP`
 - Enable `ARM64` Target Architecture
 
+## iOS Player configuration
+Configure iOS Resolver:
+    Unity ---> "Assets" ---> "External Dependency Manager" ---> "iOS Resolver" ---> "Settings"
+    ---> disable ":linkage => :static", regenerate xcode proj
+
 ## Selecting Android/iOS build
 
 AdPLayer plugin works only for Android and iOS devices. Required platform should be selected before building the project:
 - Go to `File -> Build settings`
 - Select `Android`/`iOS` from the list
 - Click `Switch platform`
+
+## Generation iOS project
+   - Go to `Unity ---> File ---> Build and Run`
+   - create a directory where to generate the iOS project (e.g."ios")`
+   - select "ios" directory
+   <BR>
+
+**NOTE**: The selected directory will be overwritten!
+
+If everything is OK Unity starts XCode, installs pods, and runs the App.  
+Once the project is generated it can be opened in XCode on your own.  
+Also, opening the project in XCode might be helpful when something went wrong.  
 
 # Usage
 
@@ -47,7 +64,11 @@ SDK must be initialized before anything with it:
 ```cs
 private static readonly string PUB_ID = "<published id>";
 private static readonly string TAG_ID = "<tag id>";
+private static readonly string IOS_APPSTORE_URL = "<app store url>"
 
+/// iOS only: Call once before any other SDK calls.
+IAdPlayer.Instance.InitializeSDK(IOS_APPSTORE_URL);
+ 
 IAdPlayer.Instance.InitializePublisher(new(
     PublisherId: PUB_ID,
     Tags: new List<IAdPlayer.TagConfig> { new(TagId: TAG_ID) }

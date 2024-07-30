@@ -24,6 +24,13 @@ namespace AdPlayer
         /// </summary>
         public record PublisherConfig(string PublisherId, List<TagConfig> Tags);
 
+
+        /// <summary>
+        /// iOS only: Sets the AppStore URL of the App. Call once before any other SDK calls.
+        /// </summary>
+        /// <param name="AppStoreURL"></param>
+        void SetIOsAppStoreUrl(string AppStoreURL);
+
         /// <summary>
         /// Initialize publisher and all of its tags.
         /// Must be called at most once per published/tag. All subsequent calls will be ignored.
@@ -40,6 +47,7 @@ namespace AdPlayer
             return Application.platform switch
             {
                 RuntimePlatform.Android => new AdPlayerAndroid(),
+                RuntimePlatform.IPhonePlayer => new AdPlayerIOS(),
                 _ => throw new Exception("unsupported platform"),
             };
         });
@@ -53,5 +61,5 @@ namespace AdPlayer
         }
 
         #endregion
-   }
+    }
 }
