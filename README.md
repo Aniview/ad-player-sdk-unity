@@ -67,7 +67,7 @@ private static readonly string TAG_ID = "<tag id>";
 private static readonly string IOS_APPSTORE_URL = "<app store url>"
 
 /// iOS only: Call once before any other SDK calls.
-IAdPlayer.Instance.InitializeSDK(IOS_APPSTORE_URL);
+IAdPlayer.Instance.SetIOsAppStoreUrl(IOS_APPSTORE_URL);
  
 IAdPlayer.Instance.InitializePublisher(new(
     PublisherId: PUB_ID,
