@@ -1,6 +1,8 @@
 using System.Threading;
 using UnityEngine;
 
+#if UNITY_ANDROID
+
 namespace AdPlayer
 {
     internal class AdPlacementAndroid : IAdPlacement
@@ -33,3 +35,5 @@ namespace AdPlayer
         }
     }
 }
+
+#endif

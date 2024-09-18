@@ -1,13 +1,13 @@
 using System.Linq;
 using UnityEngine;
 
+#if UNITY_ANDROID
+
 namespace AdPlayer
 {
     internal class AdPlayerAndroid : IAdPlayer
     {
         private readonly AndroidJavaObject jAdPlayer = new("com.adservrs.adplayer.unity.Player");
-
-        public void SetIOsAppStoreUrl(string AppStoreURL) { /* empty */ }
 
         public void InitializePublisher(IAdPlayer.PublisherConfig config)
         {
@@ -33,3 +33,5 @@ namespace AdPlayer
         }
     }
 }
+
+#endif

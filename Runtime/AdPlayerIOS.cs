@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Runtime.InteropServices;
+using UnityEngine;
+
+#if UNITY_IOS
 
 namespace AdPlayer
 {
@@ -12,17 +14,16 @@ namespace AdPlayer
         internal string tagId;
     }
 
-
     internal class AdPlayerIOS : IAdPlayer
     {
-
         [DllImport("__Internal")]
         private static extern void _initializeSDK(string appStoreURL);
 
         [DllImport("__Internal")]
         private static extern void _initializePublisher(string publisherId, TagConfigMarshalled[] tags, int count);
 
-        public void SetIOsAppStoreUrl(string AppStoreURL) {
+        public void SetIOsAppStoreUrl(string AppStoreURL)
+        {
             _initializeSDK(AppStoreURL);
         }
 
@@ -44,3 +45,5 @@ namespace AdPlayer
         }
     }
 }
+
+#endif

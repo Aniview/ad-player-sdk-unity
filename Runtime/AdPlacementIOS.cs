@@ -3,6 +3,8 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+#if UNITY_IOS
+
 namespace AdPlayer
 {
     internal class AdPlacementIOS : IAdPlacement
@@ -18,7 +20,8 @@ namespace AdPlayer
 
         private readonly string placementId = Guid.NewGuid().ToString();
 
-        internal AdPlacementIOS() {
+        internal AdPlacementIOS()
+        {
             _createAdPlacement(placementId);
         }
 
@@ -34,7 +37,7 @@ namespace AdPlayer
 
         public void AttachTag(string tagId)
         {
-           _attachTag(placementId, tagId);
+            _attachTag(placementId, tagId);
         }
 
         public void UpdatePosition(int x, int y, int width, int height)
@@ -43,3 +46,5 @@ namespace AdPlayer
         }
     }
 }
+
+#endif
