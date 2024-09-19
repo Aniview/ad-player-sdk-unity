@@ -18,8 +18,15 @@ namespace AdPlayer
         {
             return Application.platform switch
             {
+#if UNITY_ANDROID
                 RuntimePlatform.Android => new AdPlacementAndroid(),
+#endif
+#if UNITY_IOS
                 RuntimePlatform.IPhonePlayer => new AdPlacementIOS(),
+#endif
+#if UNITY_WEBGL
+                RuntimePlatform.WebGLPlayer => new AdPlacementJs(),
+#endif
                 _ => throw new Exception("unsupported platform"),
             };
         }
